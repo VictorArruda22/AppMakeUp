@@ -1,0 +1,86 @@
+UC01 - CADASTRAR USUARIO
+Descrição - Cadastrar novo usuário no app.
+Atores - Possível vitima 
+Pré-condição - Usuário deverá estar conectado a internet para primeiro cadastro.
+Pós-condição - (Sucesso) Cadastro efetuado. / (Falha) Sistema identifica e informa a falha ocorrida.
+Fluxo principal - 1. O Usuário fornece as informações de cadastro (nome, idade, endereço, estado civil, telefone, entre outras informações relevantes).
+2. O Sistema inclui o usuário na base de dados.
+3. Se o usuário não precisar fazer nenhuma alteração, caso de uso é finalizado.
+Fluxo alternativo - 1. O sistema detecta falha na integridade das informações obrigatórias e/ou falta de internet. 1.1. O sistema informa os campos obrigatórios a serem preenchidos. 1.2. Retorna ao passo 1 do fluxo principal.
+
+UC01.1 - ATUALIZAR CADASTRO
+Descrição - Atualizar os dados do usuário no app.
+Atores - Possível vitima 
+Pré-condição - Usuário deverá estar cadastrado no app e ter acesso a internet.
+Pós-condição - (Sucesso) Atualização efetuada. / (Falha) Sistema identifica e informa a falha ocorrida.
+Fluxo principal - 1. O Usuário seleciona e fornece as informações que pretende atualizar (nome, idade, endereço, estado civil, telefone, entre outras informações relevantes).
+2. O Sistema atualiza as informações do usuário na base de dados.
+3. Se o usuário não precisar fazer nenhuma alteração, caso de uso é finalizado.
+Fluxo alternativo - 1. O sistema detecta falha na integridade das informações obrigatórias e/ou falta de internet. 1.1. O sistema informa os campos obrigatórios a serem preenchidos. 1.2. Retorna ao passo 1 do fluxo principal.
+
+UC02 - AUTENTICAR USUARIO
+Descrição - Autentica o login do usuário no app.
+Atores - Possível vitima 
+Pré-condição - Usuário deverá possuir um cadastro.
+Pós-condição - (Sucesso) Autenticação efetuada. / (Falha) Sistema identifica e informa a falha ocorrida.
+Fluxo principal - 1. O Usuário fornece as informações de login (usuario e senha).
+2. O Sistema confirma as informações e autentica o usuário.
+3. O caso de uso é finalizado.
+Fluxo alternativo - 1. O sistema detecta falha na integridade das informações obrigatórias e/ou falta de internet. 1.1. O sistema informa os campos obrigatórios a serem preenchidos. 1.2. Retorna ao passo 1 do fluxo principal.
+
+UC03 - CADASTRAR CONTATOS DE EMERGÊNCIA
+Descrição - Cadastrar novos contatos de emergência.
+Atores - Possível vitima 
+Pré-condição - Usuário deverá ter um cadastro inicial e estar autenticado.
+Pós-condição - (Sucesso) Cadastro dos contatos efetuado. / (Falha) Sistema identifica e informa a falha ocorrida.
+Fluxo principal - 1. O Usuário fornece as informações de cadastro (nome, idade, endereço, grau de parentesco, telefone, entre outras informações relevantes).
+2. O Sistema inclui o contato na base de dados.
+3. Se o usuário não precisar fazer nenhuma alteração, caso de uso é finalizado.
+Fluxo alternativo - 1. O sistema detecta falha na integridade das informações obrigatórias e/ou falta de cadastro inicial. 1.1. O sistema informa os campos obrigatórios a serem preenchidos. 1.2. Retorna ao passo 1 do fluxo principal.
+
+UC04 - VISUALIZAR CONTATOS
+Descrição - Visualizar os contatos salvos no app.
+Atores - Possível vitima 
+Pré-condição - Usuário deverá ter contatos de emergência cadastrados.
+Pós-condição - (Sucesso) Usuário consegue visualizar os contatos. / (Falha) Sistema identifica a falta de cadastro de contatos de emergência.
+Fluxo principal - 1. O Usuário acessa a parte de visualização dos teus contatos.
+2. Se o usuário não precisar fazer nenhuma alteração, caso de uso é finalizado.
+Fluxo alternativo - 1. O sistema detecta que não há contatos cadastrados. 1.1. O sistema informa que é necessário cadastrar novos contatos. 1.2. Retorna ao passo UC03.
+
+UC04.1 - ATUALIZAR CONTATOS
+Descrição - Visualizar e atualizar os contatos salvos no app.
+Atores - Possível vitima 
+Pré-condição - Usuário deverá ter contatos de emergência cadastrados.
+Pós-condição - (Sucesso) Usuário consegue visualizar e atualizar os contatos. / (Falha) Sistema identifica a falta de cadastro de contatos de emergência e/ou falha na integridade dos dados de cadastro.
+Fluxo principal - 1. O Usuário acessa a parte de visualização, clica no botão de atualizar e realiza a atualização dos teus contatos.
+2. O sistema inclui o contato atualizado na base de dados.
+3. Se o usuário não precisar fazer nenhuma alteração, caso de uso é finalizado.
+Fluxo alternativo - 1. O sistema detecta que não há contatos cadastrados e/ou falha na integridade de informações. 1.1. O sistema informa que é necessário cadastrar novos contatos e/ou corrigir os campos obrigatórios a serem preenchidos. 1.2. Retorna ao passo 1 do fluxo principal.
+
+UC05 - VISUALIZAR LEIS
+Descrição - Visualizar as leis de proteção contra violência e sinônimos.
+Atores - Possível vitima 
+Pré-condição - Usuário deverá ter acesso a internet.
+Pós-condição - (Sucesso) Usuário consegue visualizar as leis. / (Falha) Sistema identifica a falta de internet e não consegue mostrar as leis atualizadas.
+Fluxo principal - 1. O Usuário acessa a parte de visualização das leis.
+2. O caso de uso é finalizado.
+Fluxo alternativo - 1. O sistema detecta que não há internet e/ou não consegue acessar as leis atualizadas. 1.1. O sistema informa que é necessário tentar novamente mais tarde. 1.2. Retorna ao passo 1 do fluxo principal.
+
+UC06 - VISUALIZAR NÚMEROS DE EMERGÊNCIA (EX: 190)
+Descrição - Visualizar os números de emergência das redes públicas.
+Atores - Possível vitima 
+Pré-condição - Usuário deverá permitir o acesso a sua localização.
+Pós-condição - (Sucesso) Usuário consegue visualizar os números. / (Falha) Sistema identifica a falta de permissão na localização e não consegue mostrar os números.
+Fluxo principal - 1. O Usuário acessa a parte de visualização dos números de emergência.
+2. O caso de uso é finalizado.
+Fluxo alternativo - 1. O sistema detecta que não há permissão para acessar a localização. 1.1. O sistema informa que é necessário permitir o acesso a localização e tentar novamente. 1.2. Retorna ao passo 1 do fluxo principal.
+
+UC07 - SOLICITAR APOIO
+Descrição - A pessoa aciona um botão para solicitar apoio ou permite que o app identifique por meio de captura de voz uma situação de risco, baseado em uma palavra chave.
+Atores - Possível vitima 
+Pré-condição - Usuário deverá permitir o acesso a sua localização, microfone, possuir cadastro, contatos de emergência cadastrados e cadastrar uma palavra de emergência.
+Pós-condição - (Sucesso) Usuário consegue solicitar apoio. / (Falha) Sistema identifica a falta de permissões.
+Fluxo principal - 1. O Usuário ativa por uma palavra chave ou por um botão de emergência o disparo de SMS, para seus contatos de emergência ou para a própria defesa pública da sua localidade.
+2. Os contatos de emergência e/ou orgãos de defesa pública são avisados.
+3. O caso de uso é finalizado.
+Fluxo alternativo - 1. O sistema detecta que não há permissões de acesso. 1.1. O sistema informa que é necessário permitir o acesso a localização e tentar novamente. 1.2. Retorna ao passo 1 do fluxo principal.
