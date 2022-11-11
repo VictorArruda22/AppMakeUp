@@ -7,14 +7,13 @@ const ContatoController = require('../controllers/ContatoController');
 const ApoioController = require('../controllers/ApoioController');
 const SoSController = require('../controllers/SosController');
 
-//teste2
 routes.get('/', async (req, res) => {
     res.status(200).json({ message: 'OK' })
 });
 
 //USUARIO
 routes.get('/users', UsuarioController.getUsers);
-routes.get('/user/:user_id', UsuarioController.getUsers);
+routes.get('/user/:user_id', UsuarioController.getUser);
 routes.post('/users', UsuarioController.getUsers);
 routes.patch('/user/:user_id', UsuarioController.getUsers);
 routes.delete('/user/:user_id', UsuarioController.getUsers);
