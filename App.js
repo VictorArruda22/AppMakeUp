@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+require('dotenv').config();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+const routes = require('./src/routes')
+
+const app = express();
+const port = process.env.PORT || 8000;
+
+mongoose.connect(process.env.MONGO_URI, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+}, console.log('Connected to database'));
+
+app.use(cors());
+app.use(express.json());
+app.use(routes);
+
+app.listen(port, () => {
+    console.log('Server running on port ', port)
 });
