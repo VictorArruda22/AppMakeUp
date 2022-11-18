@@ -7,40 +7,41 @@ const ContatoController = require('../controllers/ContatoController');
 const ApoioController = require('../controllers/ApoioController');
 const SoSController = require('../controllers/SosController');
 
-//teste2
+const { authenticate  } = require('../middlewares');
+
 routes.get('/', async (req, res) => {
     res.status(200).json({ message: 'OK' })
 });
 
 //USUARIO
-routes.get('/users', UsuarioController.getUsers);
-routes.get('/user/:user_id', UsuarioController.getUsers);
-routes.post('/users', UsuarioController.getUsers);
-routes.patch('/user/:user_id', UsuarioController.getUsers);
-routes.delete('/user/:user_id', UsuarioController.getUsers);
+routes.get('/users', authenticate, UsuarioController.getUsers);
+routes.get('/user/:user_id', authenticate, UsuarioController.getUser);
+routes.post('/users', authenticate, UsuarioController.createUser);
+routes.patch('/user/:user_id', authenticate, UsuarioController.updateUser);
+routes.delete('/user/:user_id', authenticate, UsuarioController.deleteUser);
 
 //LEIS
-routes.get('/laws', LeiController.getLaws);
-routes.get('/law/:law_id', LeiController.getLaws);
-routes.post('/laws', LeiController.getLaws);
-routes.patch('/law/:law_id', LeiController.getLaws);
-routes.delete('/law/:law_id', LeiController.getLaws);
+routes.get('/laws', authenticate, LeiController.getLaws);
+routes.get('/law/:law_id', authenticate, LeiController.getLaws);
+routes.post('/laws', authenticate, LeiController.getLaws);
+routes.patch('/law/:law_id', authenticate, LeiController.getLaws);
+routes.delete('/law/:law_id', authenticate, LeiController.getLaws);
 
 //CONTATOS EMERGENCIAIS
-routes.get('/contacts', ContatoController.getContacts);
-routes.get('/contact/:law_id', ContatoController.getContacts);
-routes.post('/contacts', ContatoController.getContacts);
-routes.patch('/contact/:law_id', ContatoController.getContacts);
-routes.delete('/contact/:law_id', ContatoController.getContacts);
+routes.get('/contacts', authenticate, ContatoController.getContacts);
+routes.get('/contact/:contact_id', authenticate, ContatoController.getContacts);
+routes.post('/contacts', authenticate, ContatoController.getContacts);
+routes.patch('/contact/:contact_id', authenticate, ContatoController.getContacts);
+routes.delete('/contact/:contact_id', authenticate, ContatoController.getContacts);
 
 //REGISTROS APOIO
-routes.get('/supports', ApoioController.getSupports);
-routes.get('/support/:law_id', ApoioController.getSupports);
-routes.post('/supports', ApoioController.getSupports);
-routes.patch('/support/:law_id', ApoioController.getSupports);
-routes.delete('/support/:law_id', ApoioController.getSupports);
+routes.get('/supports', authenticate, ApoioController.getSupports);
+routes.get('/support/:law_id', authenticate, ApoioController.getSupports);
+routes.post('/supports', authenticate, ApoioController.getSupports);
+routes.patch('/support/:law_id', authenticate, ApoioController.getSupports);
+routes.delete('/support/:law_id', authenticate, ApoioController.getSupports);
 
 //ENVIO SMS SOS
-routes.post('/sendMsg/sos', SoSController.sendMsg);
+routes.post('/sendMsg/sos', authenticate, SoSController.sendMsg);
 
 module.exports = routes;
