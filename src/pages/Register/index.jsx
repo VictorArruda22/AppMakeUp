@@ -1,16 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-
-import Routes from './src/routes'
-
-export default function App() {
-  
-
+export default function Register() {
   return (
-
-    
-    <Routes />
+    <View style={styles.container}>
+      <Text>Tela register</Text>
+      <StatusBar style="auto" />
+      
+    </View>
   );
 }
 

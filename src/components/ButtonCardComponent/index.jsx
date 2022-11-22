@@ -6,7 +6,7 @@ import { Button } from "@rneui/themed";
 
 
 
-const ButtonComponent = (props) => {
+const ButtonCardComponent = (props) => {
     
     return (
         <View>
@@ -21,15 +21,15 @@ const ButtonComponent = (props) => {
                 borderWidth: 0,
                 
                 borderRadius: 60,
-                width: 327,
-                height: 56,
+                
+                height: 27,
                 shadowOffset : { width: 0, height: 4},
                 shadowOpacity: 0.25,
                 shadowRadius: 4,
                 elevation: 1,
                 blurRadius: 4,
-                marginBottom: 50
-                
+                marginBottom: 50,
+                marginTop: 5
             }}
             
             >{props.left &&(<Icon name="arrow-left" color="white" />)}
@@ -43,4 +43,4 @@ const ButtonComponent = (props) => {
 
   
 
-export default ButtonComponent;
+export default ButtonCardComponent;

@@ -6,6 +6,7 @@ export default function Register() {
     <View style={styles.container}>
       <Text>Tela register</Text>
       <StatusBar style="auto" />
+      
     </View>
   );
 }
